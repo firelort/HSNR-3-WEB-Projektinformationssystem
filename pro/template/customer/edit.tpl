@@ -29,7 +29,7 @@ Kundenbe arbeiten
         <label for="phn">Telefonnummer</label>
         <input type="tel" id="phn" name="phn" value="${data_o['phn']}" required/>
         <br />
-        <input type="submit"/>
+        <input type="submit" class="btn-red"/>
     </form>
     <br />
 </div>

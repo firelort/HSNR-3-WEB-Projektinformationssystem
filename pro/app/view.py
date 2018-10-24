@@ -14,6 +14,12 @@ class ViewCl(object):
         markup_s = template_o.render(data_o = data_opl)
         return markup_s
 
+    def create_pro(self, template_sql, data_opl, customer_opl, employee_opl):
+        template_my_sql = os.path.join('project',template_sql)
+        template_o = self.lookup_o.get_template(template_my_sql)
+        markup_s = template_o.render(data_o=data_opl, customer_o = customer_opl, employee_o =  employee_opl)
+        return markup_s
+
     #------------ Index View
     def create_index(self):
         return self.create_p('index.tpl', None)
@@ -32,11 +38,17 @@ class ViewCl(object):
         return self.create_p(os.path.join('customer','add.tpl'), None)
 
     #------------ Project Views
-    def create_project_list(self, data_opl):
-        return self.create_p(os.path.join('project','dashboard.tpl'), data_opl)
+    def create_project_list(self, data_opl, customer_opl, emplyoee_opl):
+        return self.create_pro('dashboard.tpl', data_opl, customer_opl, emplyoee_opl)
     
-    def create_project_view(self, data_opl):
-        return self.create_p(os.path.join('project','view.tpl'), data_opl)
+    def create_project_view(self, data_opl, customer_opl, emplyoee_opl):
+        return self.create_pro('view.tpl', data_opl, customer_opl, emplyoee_opl)
+
+    def create_project_edit(self, data_opl, customer_opl, emplyoee_opl):
+        return self.create_pro('edit.tpl', data_opl, customer_opl, emplyoee_opl)
+
+    def create_project_add(self, customer_opl, emplyoee_opl):
+        return self.create_pro('add.tpl', None, customer_opl, emplyoee_opl)
 
     #------------ Staff Views
     def create_employee_list(self, data_opl):

@@ -28,8 +28,7 @@ Mitarbeiter hinzufügen
         <label for="phn">Telefonnummer</label>
         <input type="tel" id="phn" name="phn" required/>
         <br />
-        <input type="submit"/>
+        <input type="submit" class="btn-green"/>
     </form>
-    <br />
 </div>
 </%block>

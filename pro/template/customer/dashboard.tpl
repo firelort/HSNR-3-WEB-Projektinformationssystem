@@ -25,7 +25,7 @@ Kundenübersicht
                 <tbody>
                 %for data in data_o:
                 <tr id="r-${loop.index}">
-                    <td><a href="/customer/${data['id']}">${data['number'] | h}</a></td>
+                    <td><a href="/customer/?id=${data['id']}">${data['number'] | h}</a></td>
                     <td>${data['name'] | h}</td>
                     <td>${data['address'] | h}</td>
                     <td>${data['contact'] | h}</td>

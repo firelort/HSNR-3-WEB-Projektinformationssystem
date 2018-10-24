@@ -48,7 +48,6 @@ class DatabaseCl(object):
         return None
 
     #------- Customer
-
     def get_customers(self):
         return self.read_from_json_file('customer.json')['data']
 
@@ -87,6 +86,10 @@ class DatabaseCl(object):
 
     def delete_customer(self, id):
         dictionary = self.read_from_json_file('customer.json')
+        dictionary_project = self.read_from_json_file('project.json')
+        for entry in dictionary_project['data']:
+            if entry['customer'] == int(id):
+                self.delete_project(entry['id'])
         result = {"data": []}
         for entry in dictionary['data']:
             if entry['id'] != int(id):
@@ -130,9 +133,84 @@ class DatabaseCl(object):
 
     def delete_employee(self, id):
         dictionary = self.read_from_json_file('employee.json')
+        dictionary_project = self.read_from_json_file('project.json')
+
+        for packet in dictionary_project['data']:
+            pro_result = []
+            for entry in packet['employee']:
+                if entry['id'] != int(id):
+                    pro_result.append(entry)
+            packet['employee'] = pro_result
+        self.write_to_json_file('project.json', dictionary_project)
         result = {"data": []}
         for entry in dictionary['data']:
             if entry['id'] != int(id):
                 result['data'].append(entry)
         self.write_to_json_file('employee.json', result)
+
+    #-------- Projects
+    def get_projetcs(self):
+        return self.read_from_json_file('project.json')['data']
+
+    def get_project_by_id(self,id):
+        return self.get_by_id('project.json',id)
+
+    def update_project(self, id, number, title, desc, date, budget, customer, employee):
+        dictionary = self.read_from_json_file('project.json')
+        data = []
+        for entry in employee:
+            time = employee[entry]
+            if float(time) <= 0:
+                continue
+            uid = entry[3:]
+            data.append({
+                "id": int(uid),
+                "time": time
+            })
+        for entry in dictionary['data']:
+            if entry['id'] == int(id):
+                entry['number'] = int(number)
+                entry['title'] = title
+                entry['desc'] = desc
+                entry['date'] = date
+                entry['budget'] = budget
+                entry['customer'] = int(customer)
+                entry['employee'] = data
+                self.write_to_json_file('project.json', dictionary)
+                return True
+        return False
+
+    def add_project(self, number, title, desc, date, budget, customer, employee):
+        dictionary = self.read_from_json_file('project.json')
+        id = int(self.get_max_id('project.json') + 1)
+        data = []
+        for entry in employee:
+            time = employee[entry]
+            if float(time) <= 0:
+                continue
+            uid = entry[3:]
+            data.append({
+                "id": int(uid),
+                "time": time
+            })
+        dictionary['data'].append({
+            "id": int(id),
+            "number": int(number),
+            "title": title,
+            "desc": desc,
+            "date": date,
+            "budget": budget,
+            "customer": int(customer),
+            "employee": data
+        })
+        self.write_to_json_file('project.json', dictionary)
+        return id
+
+    def delete_project(self, id):
+        dictionary = self.read_from_json_file('project.json')
+        result = {"data": []}
+        for entry in dictionary['data']:
+            if entry['id'] != int(id):
+                result['data'].append(entry)
+        self.write_to_json_file('project.json', result)
 # EOF

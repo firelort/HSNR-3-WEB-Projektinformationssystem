@@ -26,7 +26,7 @@ Mitarbeiter bearbeiten
         <label for="role">Role</label>
         <input type="text" id="role" name="role" value="${data_o['role']}" required/>
         <br />
-        <input type="submit"/>
+        <input type="submit" class="btn-red"/>
     </form>
     <br />
 </div>
