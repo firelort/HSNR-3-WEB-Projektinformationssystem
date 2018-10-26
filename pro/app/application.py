@@ -11,7 +11,7 @@ class Application_cl(object):
         self.current_dir = current_dir
         self.add = AddCl(current_dir)
         self.edit = EditCl(current_dir)
-        self.delete = DelteCl(current_dir)
+        self.delete = DeleteCl(current_dir)
         self.view = ViewCl(current_dir)
         self.db = DatabaseCl(current_dir)
         pass
@@ -181,7 +181,7 @@ class EditCl(object):
         return HTTPCodeCl(404, msg_s)
 
 
-class DelteCl(object):
+class DeleteCl(object):
     def __init__(self, current_dir):
         self.current_dir = current_dir
         self.view = ViewCl(current_dir)
