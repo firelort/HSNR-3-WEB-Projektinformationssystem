@@ -10,11 +10,11 @@ Projekt bearbeiten
     <span class="card-headline">${data_o['title'] | h} - Projekt bearbeiten</span>
     <hr/>
     <form method="post" action="/edit/project">
-        <input type="hidden" name="id" value="${data_o['id'] | h}" required/>
+        <input type="hidden" name="id" value="${data_o['id'] | h}"/>
         <label for="title">Projektbeschreibung:</label>
         <input type="text" id="title" name="title" value="${data_o['title'] | h}" required/><br/>
         <label for="number">Nummer:</label>
-        <input type="number" id="number" name="number" value="${data_o['number'] | h}" required/><br/>
+        <input type="number" id="number" name="number" min="0" value="${data_o['number'] | h}" required/><br/>
         <label for="desc">Beschreibung:</label>
         <textarea id="desc" name="desc" required>${data_o['desc'] | h}</textarea><br/>
         <label for="date">Zeit:</label>
@@ -62,7 +62,7 @@ Projekt bearbeiten
 
         </select>
         <br/>
-        <input type="submit" class="btn-red"/>
+        <input type="submit" class="btn-red" value="Absenden"/>
     </form>
 </div>
 </%block>

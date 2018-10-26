@@ -19,7 +19,7 @@ ${data_o['title'] | h}
             %endfor
         </a>
         <br/>
-        Deadline: ${data_o['date'] | h}<br/>
+        Zeit: ${data_o['date'] | h}<br/>
         Budget: ${data_o['budget'] | h}</p>
     <hr/>
     <p>Beschreibung: <br/>
@@ -52,7 +52,7 @@ ${data_o['title'] | h}
     <hr/>
     <a href="/edit/project/?id=${data_o['id']}" class="btn-grey">Bearbeiten</a>
     <form action="/delete/project" method="post">
-        <input type="hidden" name="id" value="${data_o['id']}" required/>
+        <input type="hidden" name="id" value="${data_o['id']}"/>
         <input type="submit" class="btn-red" value="Löschen"/>
     </form>
     <br/>

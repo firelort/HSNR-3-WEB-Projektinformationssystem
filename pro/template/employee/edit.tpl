@@ -10,7 +10,7 @@ Mitarbeiter bearbeiten
     <span class="card-headline"><strong>${data_o['firstname'] | h} ${data_o['lastname'] | h} - Mitarbeiter bearbeiten</strong></span>
     <hr />
     <form action="/edit/employee" method="POST">
-        <input type="hidden" name="id" value="${data_o['id']}" required/>
+        <input type="hidden" name="id" value="${data_o['id']}"/>
         <label for="lastname">Nachname</label>
         <input type="text" id="lastname" name="lastname" value="${data_o['lastname']}" required/>
         <br />
@@ -26,7 +26,7 @@ Mitarbeiter bearbeiten
         <label for="role">Role</label>
         <input type="text" id="role" name="role" value="${data_o['role']}" required/>
         <br />
-        <input type="submit" class="btn-red"/>
+        <input type="submit" class="btn-red" value="Absenden"/>
     </form>
     <br />
 </div>

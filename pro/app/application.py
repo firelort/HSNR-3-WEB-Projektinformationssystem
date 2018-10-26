@@ -14,7 +14,6 @@ class Application_cl(object):
         self.delete = DeleteCl(current_dir)
         self.view = ViewCl(current_dir)
         self.db = DatabaseCl(current_dir)
-        pass
 
     @cherrypy.expose
     def index(self):

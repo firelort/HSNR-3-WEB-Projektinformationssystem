@@ -24,7 +24,7 @@ ${data_o}
             <hr/>
             <a class="btn-grey" href="/edit/customer/${data_o['id'] | h}">Bearbeiten</a>
             <form action="/delete/customer" method="post">
-                <input type="hidden" name="id" value="${data_o['id']}" required/>
+                <input type="hidden" name="id" value="${data_o['id']}"/>
                 <input type="submit" class="btn-red" value="Löschen"/>
             </form>
 

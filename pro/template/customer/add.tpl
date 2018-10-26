@@ -14,7 +14,7 @@ Mitarbeiter hinzufügen
         <input type="text" id="name" name="name" required/>
         <br />
         <label for="number">Nummer</label>
-        <input type="number" id="number" name="number" required/>
+        <input type="number" id="number" name="number" min="0" required/>
         <br />
         <label for="address">Anschrift</label>
         <input type="text" id="address" name="address" required/>
@@ -28,7 +28,7 @@ Mitarbeiter hinzufügen
         <label for="phn">Telefonnummer</label>
         <input type="tel" id="phn" name="phn" required/>
         <br />
-        <input type="submit" class="btn-green"/>
+        <input type="submit" class="btn-green" value="Absenden"/>
     </form>
 </div>
 </%block>

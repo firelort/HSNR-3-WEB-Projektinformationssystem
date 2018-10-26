@@ -2,7 +2,7 @@
 <%inherit file="/layout/base.tpl"/>
 
 <%block name="title">
-    Test
+    Index
 </%block>
 
 <%block name="content">

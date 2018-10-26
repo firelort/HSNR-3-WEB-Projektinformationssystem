@@ -1,1 +1,1 @@
-{"data": []}
+{"data": [{"id": 2, "number": 0, "title": "Peter", "desc": "Peter", "date": "Peter", "budget": "Peter", "customer": 3, "employee": [{"id": 4, "time": "100"}]}, {"id": 3, "number": 1, "title": "WEB", "desc": "Praktikum", "date": "3 Stunden", "budget": "0€", "customer": 3, "employee": [{"id": 2, "time": "100"}, {"id": 3, "time": "100"}]}, {"id": 4, "number": 5, "title": "op", "desc": "lorem ipsum", "date": "100 Jahrzehnte", "budget": "100", "customer": 3, "employee": []}]}

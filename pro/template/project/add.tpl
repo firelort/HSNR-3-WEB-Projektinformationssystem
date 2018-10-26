@@ -13,7 +13,7 @@ Projekt bearbeiten
         <label for="title">Projektbeschreibung:</label>
         <input type="text" id="title" name="title" required/><br/>
         <label for="number">Nummer:</label>
-        <input type="number" id="number" name="number" required/><br/>
+        <input type="number" id="number" name="number" min="0" required/><br/>
         <label for="desc">Beschreibung:</label>
         <textarea id="desc" name="desc" required></textarea><br/>
         <label for="date">Zeit:</label>
@@ -45,7 +45,7 @@ Projekt bearbeiten
 
         </select>
         <br/>
-        <input type="submit" class="btn-red"/>
+        <input type="submit" class="btn-green" value="Absenden"/>
     </form>
 </div>
 </%block>

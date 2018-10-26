@@ -1,1 +1,31 @@
-{"data": []}
+{
+  "data": [
+    {
+      "id": 1,
+      "number": 132456,
+      "name": "sdfghjkl",
+      "contact": "fghjklö",
+      "address": "dfghjklö",
+      "phn": "23456789",
+      "email": "adads@asdf.de"
+    },
+    {
+      "id": 2,
+      "number": 7,
+      "name": "sdfghjkl",
+      "contact": "asdf",
+      "address": "dfghjklö",
+      "phn": "23456789",
+      "email": "adads@asdf.de"
+    },
+    {
+      "id": 3,
+      "number": 1,
+      "name": "Peter",
+      "contact": "Peter",
+      "address": "Petersstraße 98",
+      "phn": "000000000000",
+      "email": "peter@peter.peter"
+    }
+  ]
+}

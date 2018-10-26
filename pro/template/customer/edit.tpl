@@ -10,12 +10,12 @@ Kundenbe arbeiten
     <span class="card-headline"><strong>${data_o['name'] | h} - Kunden bearbeiten</strong></span>
     <hr />
     <form action="/edit/customer" method="POST">
-        <input type="hidden" name="id" value="${data_o['id']}" required/>
+        <input type="hidden" name="id" value="${data_o['id']}"/>
         <label for="name">Bezeichnung</label>
         <input type="text" id="name" name="name" value="${data_o['name']}" required/>
         <br />
         <label for="number">Nummer</label>
-        <input type="number" id="number" name="number" value="${data_o['number']}" required/>
+        <input type="number" id="number" name="number" min="0" value="${data_o['number']}" required/>
         <br />
         <label for="address">Anschrift</label>
         <input type="text" id="address" name="address" value="${data_o['address']}" required/>
@@ -29,7 +29,7 @@ Kundenbe arbeiten
         <label for="phn">Telefonnummer</label>
         <input type="tel" id="phn" name="phn" value="${data_o['phn']}" required/>
         <br />
-        <input type="submit" class="btn-red"/>
+        <input type="submit" class="btn-red" value="Absenden"/>
     </form>
     <br />
 </div>

@@ -25,7 +25,7 @@ Mitarbeiter hinzufügen
         <label for="role">Role</label>
         <input type="text" id="role" name="role" required/>
         <br />
-        <input type="submit" class="btn-green"/>
+        <input type="submit" class="btn-green" value="Absenden"/>
     </form>
 </div>
 </%block>
