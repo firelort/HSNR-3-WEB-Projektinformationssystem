@@ -1,1 +1,12 @@
-{"data": [{"id": 1, "lastname": "Mustermann", "firstname": "Max", "address": "Musterstraße 1, 12345 Musertstadt, Deutschland", "email": "max@mustermann.de", "role": "Admin"}]}
+{
+  "data": [
+    {
+      "id": 1,
+      "lastname": "Mustermann",
+      "firstname": "Max",
+      "address": "Musterstraße 1, 12345 Musertstadt, Deutschland",
+      "email": "max@mustermann.de",
+      "role": "Admin"
+    }
+  ]
+}
