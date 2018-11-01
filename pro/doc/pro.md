@@ -10,7 +10,8 @@ Die Gruppe bestand aus den Teilnehmern Robert Hartings und Christopher Ionescu
 Die Anwendung soll eine Projektverwaltungssoftware im Webbrowser zur Verfügung stellen. Damit eine sinnvolle Verwaltung von Projektinformationen möglich ist, gibt es auch eine Kunden- und eine Mitarbeiterverwaltung. In der Anwendung können neue Kunden, Mitarbeiter und Projekte angelegt, verwaltet und gelöscht werden. Dem Projekt muss ein Kunde zugewiesen werden. Ein Projekt kann ohne oder mit Mitarbeiern erstellet/gespeichert werden.
 
 ### Fachliche Funktion
-Anleitung für den Endanwender
+Die Anwendung dient einer einfachen Projekt-, Kunden- und Mitarbeiteradministration. Ein Projekt kann einem Kunden zugeordnet und diesem können mehrer beteiligte Mitarbeiter sowie deren Arbeitsstunden pro Woche zugewiesen werden.
+
 ## Beschreibung Server
 
 ### `__init.py__`
