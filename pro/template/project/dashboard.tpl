@@ -7,14 +7,12 @@ Projektübersicht
 
 
 <%block name="content">
-<div class="container card card-content">
-    <br/>
-    <span class="card-headline"><strong>Projektübersicht</strong></span>
-    <a class="btn-new pulled-right" href="/add/project">Projekt hinzufügen</a>
+<div class="card table-head">
+    <strong>Projektübersicht</strong> <a class="btn-green" href="/add/project">Projekt hinzufügen</a>
 </div>
 
 %for data in data_o:
-<div class="container card card-content">
+<div class="card">
     <span class="card-headline"><strong><a href="/project?id=${data['id']}">${data['title'] | h}</a></strong> <small>#${data['number'] | h}</small></span>
     <hr/>
     <p><a href="/customer?id=${data['customer']}">
@@ -31,7 +29,8 @@ Projektübersicht
     ${data['desc'] | h}
     </p>
     <hr/>
-    <table>
+    <div class="card">
+        <table>
         <thead>
         <tr>
             <th>Mitarbeiter</th>
@@ -54,6 +53,7 @@ Projektübersicht
         %endfor
         </tbody>
     </table>
+    </div>
     <br/>
 </div>
 %endfor

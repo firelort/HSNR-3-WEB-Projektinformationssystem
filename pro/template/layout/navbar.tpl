@@ -1,9 +1,11 @@
 ## coding: utf-8
-<nav class="navbar">
-    <a class="active" href="/">Projektinformationssystem</a>
-    <div class="navbar-right">
-        <a href="/project">Projekte</a>
-        <a href="/customer">Kunden</a>
-        <a href="/employee">Mitarbeiter</a>
-    </div>
-</nav>
+<div id="navbar">
+        <div class="navbar-brand">
+            <a class="navbar-links" href="/">Projektinformationssystem</a>
+        </div>
+        <div class="navbar-items">
+            <a class="navbar-links" href="/project">Projekte</a>
+            <a class="navbar-links" href="/customer">Kunden</a>
+            <a class="navbar-links" href="/employee">Mitarbeiter</a>
+        </div>
+</div>

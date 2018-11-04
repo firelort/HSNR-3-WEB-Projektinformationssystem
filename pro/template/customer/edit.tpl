@@ -6,8 +6,8 @@ Kundenbe arbeiten
 </%block>
 
 <%block name="content">
-<div class="container card card-content">
-    <span class="card-headline"><strong>${data_o['name'] | h} - Kunden bearbeiten</strong></span>
+<div class="card">
+    <strong>Kunden bearbeiten - ${data_o['name'] | h}</strong>
     <hr />
     <form action="/edit/customer" method="POST">
         <input type="hidden" name="id" value="${data_o['id']}"/>
@@ -28,9 +28,8 @@ Kundenbe arbeiten
         <br />
         <label for="phn">Telefonnummer</label>
         <input type="tel" id="phn" name="phn" value="${data_o['phn']}" required/>
-        <br />
+        <hr />
         <input type="submit" class="btn-red" value="Absenden"/>
     </form>
-    <br />
 </div>
 </%block>

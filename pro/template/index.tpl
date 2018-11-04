@@ -7,6 +7,8 @@
 
 <%block name="content">
 <div class="landing">
-   <a href="/project" class="btn">Projekte</a><a href="/customer" class="btn">Kunden</a><a href="/employee" class="btn">Mitarbeiter</a>
+   <a href="/project" class="btn-big">Projekte</a><a href="/customer" class="btn-big">Kunden</a><a href="/employee" class="btn-big">Mitarbeiter</a>
 </div>
+
+
 </%block>

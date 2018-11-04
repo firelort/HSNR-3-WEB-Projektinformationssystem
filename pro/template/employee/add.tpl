@@ -6,8 +6,8 @@ Mitarbeiter hinzufügen
 </%block>
 
 <%block name="content">
-<div class="container card card-content">
-    <span class="card-headline"><strong>Neuen Mitarbeiter hinzufügen</strong></span>
+<div class="card">
+    <strong>Neuen Mitarbeiter hinzufügen</strong>
     <hr />
     <form action="/add/employee" method="POST">
         <label for="lastname">Nachname</label>
@@ -24,7 +24,7 @@ Mitarbeiter hinzufügen
         <br />
         <label for="role">Role</label>
         <input type="text" id="role" name="role" required/>
-        <br />
+        <hr />
         <input type="submit" class="btn-green" value="Absenden"/>
     </form>
 </div>

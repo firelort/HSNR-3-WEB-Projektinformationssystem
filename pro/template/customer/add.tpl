@@ -6,8 +6,8 @@ Mitarbeiter hinzufügen
 </%block>
 
 <%block name="content">
-<div class="container card card-content">
-    <span class="card-headline"><strong>Neuen Kunden hinzufügen</strong></span>
+<div class="card">
+    <strong>Neuen Kunden hinzufügen</strong>
     <hr />
     <form action="/add/customer" method="POST">
         <label for="name">Bezeichnung</label>
@@ -27,7 +27,7 @@ Mitarbeiter hinzufügen
         <br />
         <label for="phn">Telefonnummer</label>
         <input type="tel" id="phn" name="phn" required/>
-        <br />
+        <hr />
         <input type="submit" class="btn-green" value="Absenden"/>
     </form>
 </div>

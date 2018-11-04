@@ -20,9 +20,11 @@
 <!-- Navbar -->
 <%include file="navbar.tpl"/>
 <!--Content -->
-<%block name="content">
-    Fehler!
-</%block>
+<div id="content">
+    <%block name="content">
+        Fehler!
+    </%block>
+</div>
 <!-- Footer -->
 <%include file="footer.tpl"/>
 <!-- JavaScript -->
