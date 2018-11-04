@@ -43,7 +43,7 @@ Projektübersicht
             <td><a href="/employee?id=${entry['id']}">
                     %for secEntry in employee_o:
                         %if secEntry['id'] == entry['id']:
-                            ${secEntry['firstname'] | h} ${secEntry['lastname'] | h}
+                            ${secEntry['lastname'] | h}, ${secEntry['firstname'] | h}
                             <% break %>
                         %endif
                     %endfor

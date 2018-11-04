@@ -32,7 +32,7 @@ class AddCl(object):
             else:
                 raise cherrypy.HTTPError(500, "Internal Server Error. Couldn't save your changes. Please try again later")
         else:
-            return self.view.create_project_add(self.db.get_customers(), self.db.get_employees())
+            return self.view.create_project_add(self.db.get_customers(), self.db.get_employees_for_project())
 
     @cherrypy.expose
     def employee(self, lastname=None, firstname=None, address=None, email=None, role=None):

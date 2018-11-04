@@ -53,7 +53,7 @@ class ApplicationCl(object):
                 raise cherrypy.HTTPError(404, "There is no project with the given information. Please try again")
             else:
                 return self.view.create_project_view(self.db.get_project_by_id(id), self.db.get_customers(),
-                                                     self.db.get_employees())
+                                                     self.db.get_employees_for_project())
 
     @cherrypy.expose
     def default(self, *arglist, **kwargs):

@@ -61,7 +61,7 @@ Projekt bearbeiten
         </table>
 
         </select>
-        <br/>
+        <hr />
         <input type="submit" class="btn-red" value="Absenden"/>
     </form>
 </div>

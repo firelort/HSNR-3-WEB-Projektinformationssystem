@@ -36,7 +36,7 @@ Projekt bearbeiten
             <tbody>
             %for entry in employee_o:
             <tr>
-                <td>${entry['firstname'] | h} ${entry['lastname']}</td>
+                <td>${entry['lastname']}, ${entry['firstname'] | h}</td>
                 <td><input type="number" step="0.01" min="0" name="id-${entry['id']}" value="0" required/></td>
             </tr>
             %endfor
@@ -44,7 +44,7 @@ Projekt bearbeiten
         </table>
 
         </select>
-        <br/>
+        <hr/>
         <input type="submit" class="btn-green" value="Absenden"/>
     </form>
 </div>

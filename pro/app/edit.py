@@ -56,4 +56,4 @@ class EditCl(object):
                 else:
                     raise cherrypy.HTTPError(500, "Internal Server Error. Couldn't save your changes. Please try again later")
             else:
-                return self.view.create_project_edit(self.db.get_project_by_id(id), self.db.get_customers(), self.db.get_employees())
+                return self.view.create_project_edit(self.db.get_project_by_id(id), self.db.get_customers(), self.db.get_employees_for_project())

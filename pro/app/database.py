@@ -1,7 +1,7 @@
 # coding: utf-8
 import json
 import os.path
-
+import operator
 
 class DatabaseCl(object):
     def __init__(self, path):
@@ -100,6 +100,10 @@ class DatabaseCl(object):
     def get_employees(self):
         return self.read_from_json_file('employee.json')['data']
 
+    def get_employees_for_project(self):
+        halfsorted = sorted(self.read_from_json_file('employee.json')['data'], key=lambda k: k['firstname'])
+        return sorted(halfsorted, key=lambda k: k['lastname'])
+
     def get_employee_by_id(self, id):
         return self.get_by_id('employee.json', id)
 
@@ -150,7 +154,7 @@ class DatabaseCl(object):
 
     #-------- Projects
     def get_projetcs(self):
-        return self.read_from_json_file('project.json')['data']
+        return sorted(self.read_from_json_file('project.json')['data'], key=lambda k: k['title'])
 
     def get_project_by_id(self,id):
         return self.get_by_id('project.json',id)
