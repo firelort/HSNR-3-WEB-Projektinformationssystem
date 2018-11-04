@@ -18,8 +18,11 @@ Die Anwendung dient einer einfachen Projekt-, Kunden- und Mitarbeiteradministrat
 Kennzeichnet ein Verzeichnis als Python-Package
 
 ### `application.py`
+
 Die `Application.py` behandelt die HTTP Anfragen und delegiert die Aufgaben an die Datenbank- und die Viewklasse.
 Bei Anfragen an bestimmte Pfade wird zwischen GET und POST Request unterschieden, um entweder bei GET die Seite anzuzeigen oder bei POST die Daten zu aktualisieren (bearbeiten/hinzuzufügen). Die Application.py ist in die 4 Klassen Application_cl, EditCl, AddCl und DeleteCl gegliedert. Die Application_cl kümmert sich um die Weitergabe an EditCl, falls der Auruf an der ersten Stelle ein `edit/` enthält , AddCl, falls der Auruf an der ersten Stelle ein `add/` enthält, DeleteCl, falls der Auruf an der ersten Stelle ein `delete/` enthält, oder stellt sonst selber die angeforderten Seiten dar. Diese 4 Klassen greifen auf die `database.py` zu um Daten von der Datenbank zu erhalten oder Daten an diese zu senden. Ebenfalls greifen diese vier auf die `view.py` zu, um die jeweiligen Seiten mit den entsprechenden Daten anzuzeigen.
+
+Die Klassen AddCL, EditCl und DeleteCl sind in den jeweiligen (add.py, delete.py, edit.py) python Dateien.
 ### `view.py`
 Erstellt die Ansichten mit mako template und füllt/rendert diese mit den von der `Application.py` erhalten Daten.
 `View.py` erhält die Daten, welche dargestellt werden sollen, von der `application.py`.
