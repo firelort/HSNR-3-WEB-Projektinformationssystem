@@ -52,10 +52,18 @@ Folgende Funktionen werden zur Verfügung gestellt:
 2. `get_customer_by_id(id)` -> Liefert die Daten des Kunden mit der entsprechenden ID zurück
 3. `add_customer(name, number, contact, address, email, phn)` -> Erstellt einen neuen Kunden mit den gegebenen Daten
 4. `update_customer(id, name, number, contact, address, email, phn)` -> Editiert den Kunden, welche durch die ID spezifiziert wird, mit den gegebenen Daten
-5. `get_employees()` -> Liefert die Daten aller Mitarbeiter zurück
-6. `get_employee_by_id(id)` -> Liefert die Daten des Mitarbeiters mit der entsprechenden ID zurück.
-7. `add_employee(lastname, firstname, address, email, role)` -> Erstellt einen neuen Mitarbeiter mit den gegebenen Daten
-8. `update_employee(id, lastname, firstname, address, email, role)` -> Editiert den Mitarbeiter, welcher durch die ID spezifiziert wird, mit den gegebenen Daten
+5. `delete_customer(id)` -> Löscht den Kunden aus der Datenbank
+6. `get_employees()` -> Liefert die Daten aller Mitarbeiter zurück
+7. `get_employees_for_project()` -> Liefert die Daten alle Mitarbeiter nach Name, Vorname sortiert zurück.
+8. `get_employee_by_id(id)` -> Liefert die Daten des Mitarbeiters mit der entsprechenden ID zurück.
+9. `add_employee(lastname, firstname, address, email, role)` -> Erstellt einen neuen Mitarbeiter mit den gegebenen Daten
+10. `update_employee(id, lastname, firstname, address, email, role)` -> Editiert den Mitarbeiter, welcher durch die ID spezifiziert wird, mit den gegebenen Daten
+11. `delete_employee(id)` -> Löscht den Mitarbeiter aus der Datenbank
+12. `get_projects()` -> Liefert die Daten aller Projekte sortiered nach Projekttitel zurück.
+13. `get_project_by_id(id)` -> Lieft die Daten des Projekt, mit der angegebnen ID, zurück.
+14. `update_project(id, number, title, desc, date, budget, customer, employee)` -> Editiert das Projekt, mit der gegebnen ID, mit den gegebenen Daten
+15. `add_project(number, title, desc, date, budget, customer, employee)` -> Erstellt ein neues Projekt mit den angegebenen Daten
+16. `delete_project(id)` -> Löscht das Projekt aus der Datenbank
 ### `server.py`
 Startet den Server und bindet die Klasse `Application_cl` als Root Verzeichnis mit statischem Content ein.
 ## Datenablage
