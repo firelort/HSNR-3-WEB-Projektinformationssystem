@@ -29,7 +29,7 @@ def main():
         }
     }
     # Mount static content handler
-    root_o = cherrypy.tree.mount(application.Application_cl(current_dir), '/', static_config)
+    root_o = cherrypy.tree.mount(application.ApplicationCl(current_dir), '/', static_config)
     # suppress traceback-info
     cherrypy.config.update({'request.show_tracebacks': False})
     # Start server
