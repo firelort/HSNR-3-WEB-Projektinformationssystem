@@ -114,10 +114,11 @@ a.btn-big:hover {
     background-color: aqua;
 }
 
-a.btn-green {
+.btn-green {
     text-decoration: none;
     text-align: center;
     border: 1px solid green;
+    background-color: white;
     color: black;
     padding: 10px;
     border-radius: 4px;
@@ -125,15 +126,16 @@ a.btn-green {
     transition-duration: 0.4s;
 }
 
-a.btn-green:hover {
+.btn-green:hover {
     background-color: green;
     color: white;
 }
 
-a.btn-grey {
+.btn-grey {
     text-decoration: none;
     text-align: center;
     border: 1px solid darkslategrey;
+    background-color: white;
     color: black;
     padding: 10px;
     border-radius: 4px;
@@ -141,8 +143,25 @@ a.btn-grey {
     transition-duration: 0.4s;
 }
 
-a.btn-grey:hover {
+.btn-grey:hover {
     background-color: darkslategrey;
+    color: white;
+}
+
+.btn-red {
+    text-decoration: none;
+    text-align: center;
+    border: 1px solid red;
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border-radius: 4px;
+    margin: 10px;
+    transition-duration: 0.4s;
+}
+
+.btn-red:hover {
+    background-color: red;
     color: white;
 }
 

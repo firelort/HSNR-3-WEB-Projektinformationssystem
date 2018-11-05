@@ -13,7 +13,10 @@ Projektübersicht
 
 %for data in data_o:
 <div class="card">
-    <span class="card-headline"><strong><a href="/project?id=${data['id']}">${data['title'] | h}</a></strong> <small>#${data['number'] | h}</small></span>
+    <strong>${data['title'] | h}</strong> <small>#${data['number'] | h}</small>
+    <button class="btn-grey" onclick="buttonView('project', ${data['id']})">Ansehen</button>
+    <button class="btn-grey" onclick="buttonEdit('project', ${data['id']})">Bearbeiten</button>
+    <button class="btn-red" onclick="buttonDelete('project', ${data['id']})">Löschen</button>
     <hr/>
     <p><a href="/customer?id=${data['customer']}">
         %for entry in customer_o:
