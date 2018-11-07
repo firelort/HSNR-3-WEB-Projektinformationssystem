@@ -11,7 +11,7 @@ class DatabaseCl(object):
         try:
             int(s)
             return True
-        except ValueError:
+        except:
             return False
 
     def read_from_json_file(self, file):
@@ -84,17 +84,20 @@ class DatabaseCl(object):
         self.write_to_json_file('customer.json', dictionary)
         return id
 
-    def delete_customer(self, id):
+    def delete_customer(self, ids):
         dictionary = self.read_from_json_file('customer.json')
         dictionary_project = self.read_from_json_file('project.json')
-        for entry in dictionary_project['data']:
-            if entry['customer'] == int(id):
-                self.delete_project(entry['id'])
-        result = {"data": []}
-        for entry in dictionary['data']:
-            if entry['id'] != int(id):
-                result['data'].append(entry)
-        self.write_to_json_file('customer.json', result)
+        for id in ids:
+            if self.is_number(id):
+                for entry in dictionary_project['data']:
+                    if entry['customer'] == int(id):
+                        self.delete_project(entry['id'])
+                result = {"data": []}
+                for entry in dictionary['data']:
+                    if entry['id'] != int(id):
+                        result['data'].append(entry)
+                dictionary = result
+        self.write_to_json_file('customer.json', dictionary)
 
     #-------- Employee
     def get_employees(self):
@@ -135,22 +138,24 @@ class DatabaseCl(object):
         self.write_to_json_file('employee.json', dictionary)
         return id
 
-    def delete_employee(self, id):
+    def delete_employee(self, ids):
         dictionary = self.read_from_json_file('employee.json')
         dictionary_project = self.read_from_json_file('project.json')
-
-        for packet in dictionary_project['data']:
-            pro_result = []
-            for entry in packet['employee']:
-                if entry['id'] != int(id):
-                    pro_result.append(entry)
-            packet['employee'] = pro_result
+        for id in ids:
+            if self.is_number(id):
+                for packet in dictionary_project['data']:
+                    pro_result = []
+                    for entry in packet['employee']:
+                        if entry['id'] != int(id):
+                            pro_result.append(entry)
+                    packet['employee'] = pro_result
+                result = {"data": []}
+                for entry in dictionary['data']:
+                    if entry['id'] != int(id):
+                        result['data'].append(entry)
+                dictionary = result
         self.write_to_json_file('project.json', dictionary_project)
-        result = {"data": []}
-        for entry in dictionary['data']:
-            if entry['id'] != int(id):
-                result['data'].append(entry)
-        self.write_to_json_file('employee.json', result)
+        self.write_to_json_file('employee.json', dictionary)
 
     #-------- Projects
     def get_projetcs(self):
@@ -210,11 +215,18 @@ class DatabaseCl(object):
         self.write_to_json_file('project.json', dictionary)
         return id
 
-    def delete_project(self, id):
+    def delete_project(self, ids):
         dictionary = self.read_from_json_file('project.json')
-        result = {"data": []}
-        for entry in dictionary['data']:
-            if entry['id'] != int(id):
-                result['data'].append(entry)
+        if self.is_number(ids):
+            print(test)
+            id = ids
+            ids = [id]
+        for id in ids:
+            if self.is_number(id):
+                result = {"data": []}
+                for entry in dictionary['data']:
+                    if entry['id'] != int(id):
+                        result['data'].append(entry)
+                dictionary = result
         self.write_to_json_file('project.json', result)
 # EOF

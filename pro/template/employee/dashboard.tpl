@@ -9,13 +9,17 @@
 <%block name="content">
     <div class="card">
         <div class="table-head">
-            <strong>Mitarbeiterübersicht</strong> <a class="btn-green" href="/add/employee">Neuen Mitarbeiter
-            hinzufügen</a>
+            <strong>Mitarbeiterübersicht</strong>
+            <div>
+                <button class="btn btn-grey" id="view" onclick="buttonView('employee')">Ansehen</button>
+                <button class="btn btn-grey" id="edit" onclick="buttonEdit('employee')">Bearbeiten</button>
+                <button class="btn btn-red" id="delete" onclick="buttonDelete('employee')">Löschen</button>
+                <a class="btn btn-green" href="/add/employee">Neuen Mitarbeiter hinzufügen</a>
+            </div>
         </div>
         <table>
             <thead>
             <tr>
-                <th></th>
                 <th>Nachname</th>
                 <th>Vorname</th>
                 <th>Funktion</th>
@@ -25,12 +29,7 @@
             </thead>
             <tbody>
                 %for data in data_o:
-                    <tr id="r-${loop.index}">
-                        <td>
-                            <button class="btn-grey" onclick="buttonView('employee', ${data['id']})">Ansehen</button>
-                            <button class="btn-grey" onclick="buttonEdit('employee', ${data['id']})">Bearbeiten</button>
-                            <button class="btn-red" onclick="buttonDelete('employee', ${data['id']})">Löschen</button>
-                        </td>
+                    <tr onclick="createClickedRow(this)" name="${data['id']}">
                         <td><a href="/employee/${data['id']}">${data['lastname'] | h}</a></td>
                         <td>${data['firstname'] | h}</td>
                         <td>${data['role'] | h}</td>
@@ -41,7 +40,6 @@
             </tbody>
             <tfoot>
             <tr>
-                <th></th>
                 <th>Nachname</th>
                 <th>Vorname</th>
                 <th>Funktion</th>

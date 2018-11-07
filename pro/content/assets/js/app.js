@@ -1,80 +1,108 @@
-function buttonView(type, id) {
-    switch (type) {
-        case "customer":
-            window.location = "customer/?id=" + id;
-            break;
-        case "employee":
-            window.location = "employee/?id=" + id;
-            break;
-        case "project":
-            window.location = "project/?id=" + id;
-            break;
-        default:
-            alert("Es fand eine HTML-Manipluation statt.");
-    }
-};
+var selected = [];
 
-function buttonEdit(type, id) {
-    switch (type) {
-        case "customer":
-            window.location = "edit/customer/?id=" + id;
-            break;
-        case "employee":
-            window.location = "edit/employee/?id=" + id;
-            break;
-        case "project":
-            window.location = "edit/project/?id=" + id;
-            break;
-        default:
-            alert("Es fand eine HTML-Manipluation statt.");
+function createClickedRow(element) {
+    var id = element.getAttribute("name");
+    if (element.classList.contains("active-tr")) {
+        element.classList.remove("active-tr");
+        for (i = 0; i < selected.length; i++) {
+            if (selected[i] === id) {
+                selected.splice(i, 1);
+            }
+        }
+    } else {
+        element.classList.add("active-tr");
+        selected.push(id);
     }
-};
+    toggleButtons();
+}
 
-function buttonDelete(type, id) {
-    switch (type) {
-        case "customer":
-            if (confirm("Möchten Sie den Kunden wirklich löschen?") == true) {
-                var form = document.createElement("form");
+function createClickedCard(element) {
+    var id = element.getAttribute("name");
+    if (element.classList.contains("card-active")) {
+        element.classList.remove("card-active");
+        for (i = 0; i < selected.length; i++) {
+            if (selected[i] === id) {
+                selected.splice(i, 1);
+            }
+        }
+    } else {
+        element.classList.add("card-active");
+        selected.push(id);
+    }
+    toggleButtons();
+}
+
+function buttonView(type) {
+    if (selected.length !== 1) {
+        alert("Es kann nur genau ein Eintrag angesehen werden!");
+    } else if(selected.length > 0) {
+        window.location = type + "/?id=" + selected[0];
+    }
+}
+
+function buttonEdit(type) {
+    if (selected.length !== 1) {
+        alert("Es kann nur genau ein Eintrag bearbeitet werden!");
+    } else if(selected.length > 0) {
+        window.location = "edit/" + type + "/?id=" + selected[0];
+    }
+}
+
+function buttonDelete(type) {
+    if (selected.length > 0  && confirm("Möchten Sie die ausgewählten Einträge wirklich löschen?") === true ) {
+        var form = document.createElement("form");
                 form.setAttribute("method", "post");
-                form.setAttribute("action", "delete/customer");
+                form.setAttribute("action", "delete/" + type);
                 var hiddenField = document.createElement("input");
                 hiddenField.setAttribute("type", "hidden");
-                hiddenField.setAttribute("name", "id");
-                hiddenField.setAttribute("value", id);
+                hiddenField.setAttribute("name", "ids");
+                hiddenField.setAttribute("value", selected);
                 form.appendChild(hiddenField);
                 document.body.appendChild(form);
                 form.submit();
-            }
-            break;
-        case "employee":
-            if (confirm("Möchten Sie den Mitarbeiter wirklich löschen?") == true) {
-                var form = document.createElement("form");
-                form.setAttribute("method", "post");
-                form.setAttribute("action", "delete/employee");
-                var hiddenField = document.createElement("input");
-                hiddenField.setAttribute("type", "hidden");
-                hiddenField.setAttribute("name", "id");
-                hiddenField.setAttribute("value", id);
-                form.appendChild(hiddenField);
-                document.body.appendChild(form);
-                form.submit()
-            }
-            break;
-        case "project":
-            if (confirm("Möchten Sie das Projekt wirklich löschen?") == true) {
-                var form = document.createElement("form");
-                form.setAttribute("method", "post");
-                form.setAttribute("action", "delete/project");
-                var hiddenField = document.createElement("input");
-                hiddenField.setAttribute("type", "hidden");
-                hiddenField.setAttribute("name", "id");
-                hiddenField.setAttribute("value", id);
-                form.appendChild(hiddenField);
-                document.body.appendChild(form);
-                form.submit()
-            }
-            break;
-        default:
-            alert("Es fand eine HTML-Manipluation statt.");
     }
 }
+
+function activeElements() {
+    var active = document.getElementsByClassName("active-tr");
+    for(i = 0; i < active.length; i++) {
+        selected.push(active.getAttribute("name"));
+    }
+    toggleButtons();
+}
+
+function toggleButtons() {
+    var element;
+    if (selected.length === 0) {
+        element = document.getElementById("view");
+        if (element != null) {
+            element.classList.remove("hidden");
+        }
+        element = document.getElementById("edit");
+        if (element != null) {
+            element.classList.remove("hidden");
+        }
+    } else if (selected.length === 1) {
+        element = document.getElementById("view");
+        if (element != null) {
+            element.classList.remove("hidden");
+        }
+        element = document.getElementById("edit");
+        if (element != null) {
+            element.classList.remove("hidden");
+        }
+    } else {
+        element = document.getElementById("view");
+        if (element != null) {
+            element.classList.add("hidden");
+        }
+        element = document.getElementById("edit");
+        if (element != null) {
+            element.classList.add("hidden");
+        }
+    }
+}
+
+window.onload = function () {
+    activeElements();
+};
