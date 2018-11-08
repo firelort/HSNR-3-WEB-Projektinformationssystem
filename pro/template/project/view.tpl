@@ -71,13 +71,6 @@
                 </tbody>
             </table>
         <hr/>
-        <div class="table-bottom">
-            <a href="/edit/project/?id=${data_o['id']}" class="btn-grey">Bearbeiten</a>
-            <form action="/delete/project" method="post">
-                <input type="hidden" name="id" value="${data_o['id']}"/>
-                <input type="submit" class="btn-red" value="Löschen"/>
-            </form>
-        </div>
         <br/>
     </div>
 </%block>
