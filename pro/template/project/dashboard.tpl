@@ -28,8 +28,7 @@
                                                          <% break %>
                 %endif
                 %endfor
-            </a>
-                - ${data['date'] | h} - ${data['budget'] | h}</p>
+            </a> - ${data['date'] | h} - ${data['budget'] | h}</p>
             <hr/>
             <p>Beschreibung: <br/>
                 ${data['desc'] | h}

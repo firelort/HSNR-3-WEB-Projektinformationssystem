@@ -218,7 +218,6 @@ class DatabaseCl(object):
     def delete_project(self, ids):
         dictionary = self.read_from_json_file('project.json')
         if self.is_number(ids):
-            print(test)
             id = ids
             ids = [id]
         for id in ids:
