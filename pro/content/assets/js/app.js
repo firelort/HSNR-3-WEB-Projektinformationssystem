@@ -1,7 +1,7 @@
 var selected = [];
 
 function createClickedRow(element) {
-    var id = element.getAttribute("name");
+    var id = element.getAttribute("id");
     if (element.classList.contains("active-tr")) {
         element.classList.remove("active-tr");
         for (i = 0; i < selected.length; i++) {
@@ -17,7 +17,7 @@ function createClickedRow(element) {
 }
 
 function createClickedCard(element) {
-    var id = element.getAttribute("name");
+    var id = element.getAttribute("id");
     if (element.classList.contains("card-active")) {
         element.classList.remove("card-active");
         for (i = 0; i < selected.length; i++) {

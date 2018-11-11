@@ -17,7 +17,7 @@
         </div>
     </div>
     %for data in data_o:
-        <div class="card" onclick="createClickedCard(this)" name="${data['id']}">
+        <div class="card" onclick="createClickedCard(this)" id="${data['id']}">
             <strong>${data['title'] | h}</strong>
             <small>#${data['number'] | h}</small>
             <hr/>

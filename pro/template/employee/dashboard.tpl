@@ -29,7 +29,7 @@
             </thead>
             <tbody>
                 %for data in data_o:
-                    <tr onclick="createClickedRow(this)" name="${data['id']}">
+                    <tr onclick="createClickedRow(this)" id="${data['id']}">
                         <td><a href="/employee/${data['id']}">${data['lastname'] | h}</a></td>
                         <td>${data['firstname'] | h}</td>
                         <td>${data['role'] | h}</td>
