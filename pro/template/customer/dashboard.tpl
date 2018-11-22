@@ -32,7 +32,7 @@
             </thead>
             <tbody>
                 %for data in data_o:
-                    <tr onclick="createClickedRow(this)" id="${data['id']}">
+                    <tr id="${data['id']}" name="tr">
                         <td>${data['number'] | h}</td>
                         <td>${data['name'] | h}</td>
                         <td>${data['address'] | h}</td>
