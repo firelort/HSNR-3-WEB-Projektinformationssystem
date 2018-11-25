@@ -7,10 +7,10 @@ Die Gruppe bestand aus den Teilnehmern Robert Hartings und Christopher Ionescu
 
 ## Beschreibung Lösung
 ### Aufgabe der Anwendung
-Die Anwendung soll eine Projektverwaltungssoftware im Webbrowser zur Verfügung stellen. Damit eine sinnvolle Verwaltung von Projektinformationen möglich ist, gibt es auch eine Kunden- und eine Mitarbeiterverwaltung. In der Anwendung können neue Kunden, Mitarbeiter und Projekte angelegt, verwaltet und gelöscht werden. Dem Projekt muss ein Kunde zugewiesen werden. Ein Projekt kann ohne oder mit Mitarbeiern erstellet/gespeichert werden.
+Die Anwendung soll eine Projektverwaltungssoftware im Webbrowser zur Verfügung stellen. Damit eine sinnvolle Verwaltung von Projektinformationen möglich ist, gibt es auch eine Kunden- und eine Mitarbeiterverwaltung. In der Anwendung können neue Kunden, Mitarbeiter und Projekte angelegt, verwaltet und gelöscht werden. Dem Projekt muss ein Kunde zugewiesen werden. Ein Projekt kann ohne oder mit Mitarbeitern erstellet/gespeichert werden.
 
 ### Fachliche Funktion
-Die Anwendung dient einer einfachen Projekt-, Kunden- und Mitarbeiteradministration. Ein Projekt kann einem Kunden zugeordnet und diesem können mehrer beteiligte Mitarbeiter sowie deren Arbeitsstunden pro Woche zugewiesen werden.
+Die Anwendung dient einer einfachen Projekt-, Kunden- und Mitarbeiteradministration. Ein Projekt kann einem Kunden zugeordnet und diesem können mehrere beteiligte Mitarbeiter sowie deren Arbeitsstunden pro Woche zugewiesen werden.
 
 ## Beschreibung Server
 
@@ -20,10 +20,9 @@ Kennzeichnet ein Verzeichnis als Python-Package
 ### `application.py`
 
 Die `Application.py` behandelt die HTTP Anfragen und delegiert die Aufgaben an die Datenbank- und die Viewklasse.
-Bei Anfragen an bestimmte Pfade wird zwischen GET und POST Request unterschieden, um entweder bei GET die Seite anzuzeigen oder bei POST die Daten zu aktualisieren (bearbeiten/hinzuzufügen). Die Application.py ist in die 4 Klassen ApplicationCl, EditCl, AddCl und DeleteCl gegliedert. Die ApplicationCl kümmert sich um die Weitergabe an EditCl, falls der Auruf an der ersten Stelle ein `edit/` enthält , AddCl, falls der Auruf an der ersten Stelle ein `add/` enthält, DeleteCl, falls der Auruf an der ersten Stelle ein `delete/` enthält, oder stellt sonst selber die angeforderten Seiten dar. Diese 4 Klassen greifen auf die `database.py` zu um Daten von der Datenbank zu erhalten oder Daten an diese zu senden. Ebenfalls greifen diese vier auf die `view.py` zu, um die jeweiligen Seiten mit den entsprechenden Daten anzuzeigen.
+Bei Anfragen an bestimmte Pfade wird zwischen GET und POST Request unterschieden, um entweder bei GET die Seite anzuzeigen oder bei POST die Daten zu aktualisieren (bearbeiten/hinzuzufügen). Die Application.py ist in die 4 Klassen ApplicationCl, EditCl, AddCl und DeleteCl gegliedert. Die ApplicationCl kümmert sich um die Weitergabe an EditCl, falls der Aufruf an der ersten Stelle ein `edit/` enthält , AddCl, falls der Auruf an der ersten Stelle ein `add/` enthält, DeleteCl, falls der Auruf an der ersten Stelle ein `delete/` enthält, oder stellt sonst selber die angeforderten Seiten dar. Diese 4 Klassen greifen auf die `database.py` zu um Daten von der Datenbank zu erhalten oder Daten an diese zu senden. Ebenfalls greifen diese vier auf die `view.py` zu, um die jeweiligen Seiten mit den entsprechenden Daten anzuzeigen.
 
 Die Klassen AddCL, EditCl und DeleteCl sind in den jeweiligen (add.py, delete.py, edit.py) python Dateien.
-
 
 ### `view.py`
 Erstellt die Ansichten mit mako template und füllt/rendert diese mit den von der `Application.py` erhalten Daten.
@@ -32,11 +31,10 @@ Erstellt die Ansichten mit mako template und füllt/rendert diese mit den von de
 
 Folgende internen Funktionen werden genutzt:
 
-
 1. `create_p(template_sql, data_sql)` -> Stellt die Sichten für Kunden und Mitarbeiter mit den gegeben (auch keinen) Informationen dar. `template_sql` ist der relative Pfad zur gewünschten View. `data_sql` sind die jeweiligen darzustellenden Daten.
 2. `create_pro(template_sql, data_opl, customer_opl, employee_opl)` -> Stellt die Sicht für die Projekte mit den gegebenen (auch keinen) Informationen dar. `template_sql` ist der relative Pfad mit der Ergänzung `/project`. `data_opl` sind die Projektdaten, `customer_opl` sind die Kundendaten und `employee_opl` sind die Mitarbeiterdaten.
 
-Folgende Funktion werden zur Verfügung gesellt:
+Folgende Funktionen werden zur Verfügung gestellt:
 
 
 1. `create_index()` -> Erstellt die Index Seite
@@ -53,12 +51,24 @@ Folgende Funktion werden zur Verfügung gesellt:
 12. `create_project_edit(data, customer, employee)` -> Erstellt die Anzeige von der Bearbeitungsseite eines Projekts
 13. `create_project_add(customer, employee)` -> Erstellt die Anzeige für die Erstellung eines Projekts
 
+###delete.py
+Diese Datei/Klasse stellt Funktionen bereit, welche es ermöglichen, einen oder mehrere ausgewählte(n) Mitarbeiter, Kunden oder Projekt(e) aus der Datenbank zu löschen und diese Information an die Datenbank weiterzuleiten.
+Dieser Befehl kann nur mit der POST-Methode ausgeführt werden.
+
+###edit.py
+Diese Datei/Klasse ruft zunächst die Daten zu einem ausgewählten Mitarbeiter/Kunden/Projekt auf, stellt diese graphisch dar und ermöglicht dem Benutzer das Verändern der Daten. Diese werden dann an die Datenbank weitergeleitet.
+Die graphische Darstellung erfolgt nur mit einem GET-Request, das Überschreiben der Daten mit einem POST-Request.
+Existiert kein Mitarbeiter/Kunde/Projekt mit der weitergeleiteten ID, so wird eine Fehlermeldung aufgerufen.
+
+###add.py
+Diese Datei/Klasse erstellt ein(en) Mitarbeiter/Kunden/Projekt mit den vom Benutzer vorgegebenen Daten und gibt diese Daten graphisch aus. Sind die Daten unvollständig, so schlägt das Erstellen fehl.
+Die graphische Darstellung erfolgt mit der GET-Methode, das Erstellen des Mitarbeiters/Kunden/Projekts erfolgt mit der POST-Methode.
+
 ### `database.py`
 Die Database Python Datei stellt die Schnittstelle zwischen Application und Dateien (Datenbank) dar. Die Schnittstelle lädt / speichert die Daten in die jeweiligen JSON Dateien.
 Die Datei ist in die Funktionen `write_to_json_file,` um die Daten zu speichern, und `read_from_json_file`, um die Daten aus der Datei zu lesen, untergliedert. Des Weiteren  stellt diese die Funktionen zur Verfügung, um Daten von einem oder allen Kunden/Mitarbeitern/Projekten zu bekommen. Auch stellt die Datenbank Klasse Methoden zum Hinzufügen / Löschen oder Ändern von Daten zur Verfügung. Die Daten werden entweder an die `Application_cl` übergeben oder sie erhält Daten von dieser.
 
 Folgende Funktionen werden zur Verfügung gestellt:
-
 
 1. `get_customers()` -> Liefert die Daten aller Kunden zurück
 2. `get_customer_by_id(id)` -> Liefert die Daten des Kunden mit der entsprechenden ID zurück
