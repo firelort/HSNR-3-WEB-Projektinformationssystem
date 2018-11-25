@@ -14,7 +14,7 @@ Die Anwendung dient einer einfachen Projekt-, Kunden- und Mitarbeiteradministrat
 
 ## Beschreibung Server
 
-### `__init.py__`
+### __init.py__
 Kennzeichnet ein Verzeichnis als Python-Package
 
 ### `application.py`
@@ -51,16 +51,16 @@ Folgende Funktionen werden zur Verfügung gestellt:
 12. `create_project_edit(data, customer, employee)` -> Erstellt die Anzeige von der Bearbeitungsseite eines Projekts
 13. `create_project_add(customer, employee)` -> Erstellt die Anzeige für die Erstellung eines Projekts
 
-###delete.py
+### `delete.py`
 Diese Datei/Klasse stellt Funktionen bereit, welche es ermöglichen, einen oder mehrere ausgewählte(n) Mitarbeiter, Kunden oder Projekt(e) aus der Datenbank zu löschen und diese Information an die Datenbank weiterzuleiten.
 Dieser Befehl kann nur mit der POST-Methode ausgeführt werden.
 
-###edit.py
+### `edit.py`
 Diese Datei/Klasse ruft zunächst die Daten zu einem ausgewählten Mitarbeiter/Kunden/Projekt auf, stellt diese graphisch dar und ermöglicht dem Benutzer das Verändern der Daten. Diese werden dann an die Datenbank weitergeleitet.
 Die graphische Darstellung erfolgt nur mit einem GET-Request, das Überschreiben der Daten mit einem POST-Request.
 Existiert kein Mitarbeiter/Kunde/Projekt mit der weitergeleiteten ID, so wird eine Fehlermeldung aufgerufen.
 
-###add.py
+### `add.py`
 Diese Datei/Klasse erstellt ein(en) Mitarbeiter/Kunden/Projekt mit den vom Benutzer vorgegebenen Daten und gibt diese Daten graphisch aus. Sind die Daten unvollständig, so schlägt das Erstellen fehl.
 Die graphische Darstellung erfolgt mit der GET-Methode, das Erstellen des Mitarbeiters/Kunden/Projekts erfolgt mit der POST-Methode.
 
