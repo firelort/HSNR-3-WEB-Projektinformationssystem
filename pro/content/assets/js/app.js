@@ -13,6 +13,10 @@ function createClickedRow(element) {
         element.classList.add("active-tr");
         selected.push(id);
     }
+    //console.log(element);
+    //console.log(element.classList);
+    //console.log(id);
+    //console.log(selected);
     toggleButtons();
 }
 
@@ -35,7 +39,7 @@ function createClickedCard(element) {
 function buttonView(type) {
     if (selected.length !== 1) {
         alert("Es kann nur genau ein Eintrag angesehen werden!");
-    } else if(selected.length > 0) {
+    } else if (selected.length > 0) {
         window.location = type + "/?id=" + selected[0];
     }
 }
@@ -43,29 +47,29 @@ function buttonView(type) {
 function buttonEdit(type) {
     if (selected.length !== 1) {
         alert("Es kann nur genau ein Eintrag bearbeitet werden!");
-    } else if(selected.length > 0) {
+    } else if (selected.length > 0) {
         window.location = "edit/" + type + "/?id=" + selected[0];
     }
 }
 
 function buttonDelete(type) {
-    if (selected.length > 0  && confirm("Möchten Sie die ausgewählten Einträge wirklich löschen?") === true ) {
+    if (selected.length > 0 && confirm("Möchten Sie die ausgewählten Einträge wirklich löschen?") === true) {
         var form = document.createElement("form");
-                form.setAttribute("method", "post");
-                form.setAttribute("action", "delete/" + type);
-                var hiddenField = document.createElement("input");
-                hiddenField.setAttribute("type", "hidden");
-                hiddenField.setAttribute("name", "ids");
-                hiddenField.setAttribute("value", selected);
-                form.appendChild(hiddenField);
-                document.body.appendChild(form);
-                form.submit();
+        form.setAttribute("method", "post");
+        form.setAttribute("action", "delete/" + type);
+        var hiddenField = document.createElement("input");
+        hiddenField.setAttribute("type", "hidden");
+        hiddenField.setAttribute("name", "ids");
+        hiddenField.setAttribute("value", selected);
+        form.appendChild(hiddenField);
+        document.body.appendChild(form);
+        form.submit();
     }
 }
 
 function activeElements() {
     var active = document.getElementsByClassName("active-tr");
-    for(i = 0; i < active.length; i++) {
+    for (i = 0; i < active.length; i++) {
         selected.push(active.getAttribute("name"));
     }
     toggleButtons();
@@ -103,6 +107,22 @@ function toggleButtons() {
     }
 }
 
+function insertEventlistner() {
+    var tr = document.getElementsByTagName("table")[0].rows;
+    var card = document.getElementsByName("project");
+    for (var i = 1; i < tr.length - 1; i++) {
+        tr[i].addEventListener('click', function () {
+            createClickedRow(this);
+        });
+    }
+    for (var j = 0; j < card.length; j++) {
+        card[j].addEventListener('click', function () {
+            createClickedCard(this);
+        });
+    }
+}
+
 window.onload = function () {
     activeElements();
+    insertEventlistner();
 };
