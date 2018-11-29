@@ -17,7 +17,7 @@
         </div>
     </div>
     %for data in data_o:
-        <div class="card" name="project" id="${data['id']}">
+        <div class="card selectable" id="${data['id']}">
             <strong>${data['title'] | h}</strong>
             <small>#${data['number'] | h}</small>
             <hr/>

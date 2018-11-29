@@ -17,7 +17,7 @@
                 <a class="btn btn-green" href="/add/employee">Neuen Mitarbeiter hinzufügen</a>
             </div>
         </div>
-        <table>
+        <table class="selectable">
             <thead>
             <tr>
                 <th>Nachname</th>

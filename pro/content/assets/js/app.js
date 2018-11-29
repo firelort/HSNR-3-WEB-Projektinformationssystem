@@ -108,9 +108,9 @@ function toggleButtons() {
 }
 
 function insertEventlistner() {
-    var tr = document.getElementsByTagName("table")[0].rows;
-    var card = document.getElementsByName("project");
-    for (var i = 1; i < tr.length - 1; i++) {
+    var tr = document.querySelectorAll("table.selectable tbody tr");
+    var card = document.querySelectorAll("div.selectable");
+    for (var i =    0; i < tr.length; i++) {
         tr[i].addEventListener('click', function () {
             createClickedRow(this);
         });

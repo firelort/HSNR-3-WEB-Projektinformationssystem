@@ -19,7 +19,7 @@
                 <a class="btn btn-green" href="/add/customer">Neuen Kunden hinzufügen</a>
             </div>
         </div>
-        <table>
+        <table class="selectable">
             <thead>
             <tr>
                 <th>#</th>
